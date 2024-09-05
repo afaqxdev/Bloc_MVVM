@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc_project/config/routes/routes.dart';
 import 'package:flutter_bloc_project/config/routes/routes_name.dart';
 import 'package:flutter_bloc_project/repository/auth/auth_repo.dart';
+import 'package:flutter_bloc_project/repository/movie_repo/movie_https_repo.dart';
+import 'package:flutter_bloc_project/repository/movie_repo/movie_repo.dart';
 import 'package:get_it/get_it.dart';
 
 GetIt getit = GetIt.instance;
@@ -30,4 +32,5 @@ class MyApp extends StatelessWidget {
 
 void serviceLocator() {
   getit.registerLazySingleton<LoginRepository>(() => LoginRepository());
+  getit.registerLazySingleton<MovieRepo>(() => MovieHttpRepo());
 }

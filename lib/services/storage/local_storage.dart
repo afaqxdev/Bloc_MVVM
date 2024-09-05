@@ -8,13 +8,17 @@ class LocalStorage {
     return true;
   }
 
-  Future<dynamic> readValue(String key, String value) async {
+  Future<dynamic> readValue(
+    String key,
+  ) async {
     return await storage.read(
       key: key,
     );
   }
 
-  Future<bool> deleteValue(String key, String value) async {
+  Future<bool> deleteValue(
+    String key,
+  ) async {
     await storage.delete(
       key: key,
     );

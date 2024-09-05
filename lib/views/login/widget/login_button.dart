@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_project/bloc/bloc/login_bloc.dart';
+import 'package:flutter_bloc_project/config/routes/routes_name.dart';
 import 'package:flutter_bloc_project/utils/enum.dart';
 
 import '../../../utils/flush_bar_snack.dart';
@@ -20,8 +21,7 @@ class LoginButton extends StatelessWidget {
           FlushBarSnack.flushBarErrorMessage(state.meesage.toString(), context);
         }
         if (state.postApiStaus == PostApiStaus.success) {
-          FlushBarSnack.flushBarSuccessMessage(
-              state.meesage.toString(), context);
+          Navigator.pushNamed(context, RoutesName.homeScreen);
         }
         if (state.postApiStaus == PostApiStaus.loading) {
           FlushBarSnack.flushBarErrorMessage('Submit your Response', context);
@@ -38,7 +38,7 @@ class LoginButton extends StatelessWidget {
                 }
               },
               child: state.postApiStaus == PostApiStaus.loading
-                  ? CircularProgressIndicator()
+                  ? const CircularProgressIndicator()
                   : const Text("Login"));
         },
       ),

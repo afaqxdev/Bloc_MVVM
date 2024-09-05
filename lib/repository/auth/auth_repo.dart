@@ -6,7 +6,6 @@ class LoginRepository {
   final api = NetworkServicesApi();
   Future<UserModel> loginApi(dynamic data) async {
     final response = await api.postApi(ApiUrl.loginUrl, data);
-    print(response);
     return UserModel.fromJson(response);
   }
 }
